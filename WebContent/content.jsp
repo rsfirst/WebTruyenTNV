@@ -73,7 +73,7 @@
             }
         %>
         <div class="container" style="margin-top: 60px;">
-            <div class="content" style="background: white;">
+            <div class="content" style="background: white; border-radius:1em">
                 <div class="content-top">
                     <h3 class="future" style="padding-top:0.5em; color:#6b9876;font-size: 30px";>Truyện Top</h3>
                     <div class="content-top-in" style="padding-top: 0px">

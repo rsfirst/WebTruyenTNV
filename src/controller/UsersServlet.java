@@ -114,7 +114,7 @@ public class UsersServlet extends HttpServlet {
 						if (users.getUser_kichhoat() == 1) {
 							if (users.getUser_role() == 1) {
 								session.setAttribute("admin", users);
-								url = "/index_Admin.jsp";
+								url = "/index.jsp";
 								break;
 							} else {
 								if (users.getUser_role() == 0) {

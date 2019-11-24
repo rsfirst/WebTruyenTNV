@@ -113,6 +113,8 @@
 		Users users = null;
 		if (session.getAttribute("user") != null) {
 			users = (Users) session.getAttribute("user");
+		} else if (session.getAttribute("admin") != null) {
+			users = (Users) session.getAttribute("admin");
 		}
 		Cart cart = (Cart) session.getAttribute("cart");
 
@@ -126,9 +128,6 @@
 			<div class="header-top" style="background: rgba(0, 0, 0, 0.4);">
 				<div class="container">
 					<div class="header-top-in">
-						<div class="logo">
-							<a href="index.jsp"><i class="fas fa-home"></i></a>
-						</div>
 						<div class="header-in">
 							<ul class="icon1 sub-icon1">
 								<%
@@ -136,7 +135,14 @@
 								%>
 								<li><a href="index.jsp">Xin Chào,Bạn <%=users.getHovaten()%></a>
 								</li>
-
+								<%
+									if (users.getUser_role() == 1) {
+								%>
+								<li><a href="index_Admin.jsp" style="bheight: 43px;">Trang
+										Admin</a></li>
+								<%
+									}
+								%>
 								<li><a href="#">Tài Khoản Của Tôi</a></li>
 								<li><a href="ThongTinNhaDaLuu.jsp"
 									style="border-top: 3px solid black; border-left: 3px solid black; border-bottom: 3px solid black; height: 43px;">Thông
@@ -200,6 +206,19 @@
 									if (users != null) {
 								%><li><a href="DangXuat">Thoát Tài Khoản</a></li>
 								<%
+									} else {
+								%>
+								<p class="wel" style="color: #white;">
+									<span style="color: white;">Xin Chào,Bạn Nên Đăng Nhập
+										Để Hiển Thị Chức Năng <i class="fas fa-sign-in-alt"></i>
+									</span><a href="login.jsp" style="color: #white;"><span
+										style="color: aqua;">Đăng Nhập</span></a><span
+										style="color: white;"> Hoặc </span><i
+										class="fas fa-sign-in-alt"></i><a href="register.jsp"
+										style="color: #white;"><span style="color: aqua;">Tạo
+											Tài Khoản Mới.</span></a>
+								</p>
+								<%
 									}
 								%>
 								<div class="clearfix"></div>
@@ -216,7 +235,7 @@
 				<div class="h_menu4">
 					<a class="toggleMenu" href="#">Menu</a>
 					<ul class="nav">
-						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4)"><a
+						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4);border-top-left-radius:1.5em;border-bottom-left-radius:1.5em" ><a
 							href="index.jsp" id="menu"><i> </i>Home</a></li>
 						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4)"><a
 							id="menu" href="#">NHÀ ĐẤT BÁN</a>
@@ -252,7 +271,7 @@
 							id="menu" href="noi_ngoaithat.jsp">Nội-Ngoại Thất</a></li>
 						<li id="s" style="background: rgba(0, 0, 0, 0.4); color: white;"><a
 							id="menu" href="phongthuy.jsp">Phong Thủy</a></li>
-						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4)"><a
+						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4);border-top-right-radius:1.5em;border-bottom-right-radius:1.5em"><a
 							id="menu" href="lienhe.jsp">Liên Hệ</a></li>
 					</ul>
 					<script type="text/javascript" src="js/nav.js"></script>
@@ -265,23 +284,7 @@
 					if (users == null) {
 				%>
 				<div class="header-bottom-on">
-					<p class="wel" style="color: #white;">
-						<span style="color: white;">Xin Chào,Bạn Nên Đăng Nhập Để
-							Hiển Thị Chức Năng <i class="fas fa-sign-in-alt"></i>
-						</span><a href="login.jsp" style="color: #white;"><span
-							style="color: aqua;">Đăng Nhập</span></a><span style="color: white;">
-							Hoặc </span><i class="fas fa-sign-in-alt"></i><a href="register.jsp"
-							style="color: #white;"><span style="color: aqua;">Tạo
-								Tài Khoản Mới.</span></a>
-					</p>
-
 					<div class="header-can">
-						<ul class="social-in">
-							<li><a href="#"><i> </i></a></li>
-							<li><a href="#"><i class="facebook"> </i></a></li>
-							<li><a href="#"><i class="twitter"></i></a></li>
-							<li><a href="#"><i class="skype"> </i></a></li>
-						</ul>
 						<%
 							}
 						%>
@@ -342,7 +345,23 @@
 color
 
 
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
 
 
 ;
@@ -352,7 +371,23 @@ color
 color
 
 
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
 
 
 ;
@@ -368,7 +403,23 @@ color
 color
 
 
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
 
 
 ;
@@ -378,7 +429,23 @@ color
 color
 
 
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
 
 
 ;
@@ -394,7 +461,23 @@ color
 color
 
 
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
 
 
 ;
@@ -404,7 +487,23 @@ color
 color
 
 
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
 
 
 ;
@@ -420,7 +519,23 @@ keyframes my { 0% {
 color
 
 
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
 
 
 ;
@@ -430,7 +545,23 @@ color
 color
 
 
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
 
 
 ;
