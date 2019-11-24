@@ -65,17 +65,17 @@
             }
         </style>
     </head>
-    <body style="background:url(video/bann.jpg) fixed">
+    <body style="background:url(bgImages/body-bg-tl.jpg) fixed">
         <%
             if (session.getAttribute("user") != null || session.getAttribute("admin") != null) {
                 response.sendRedirect("index.jsp");
             }
         %>
         <jsp:include page="header.jsp"></jsp:include>
-            <div class="container" style="border: 3px solid black;">
+            <div class="container"  style="background: white;border-radius:1.5em">
                 <div class="container">
                     <div class="account">
-                        <h2 class="account-in" style="color:white;">Đăng Nhập Tài Khoản</h2>
+                        <h2 class="account-in" style="color:#6b9876;font-size: 30px">Đăng Nhập Tài Khoản</h2>
                         <form action="UsersServlet" method="POST">
                         <% String err = (String) request.getAttribute("error");
                             if (err != null) {%>
@@ -102,26 +102,15 @@
                         </div> 
                         <% }%>
                         <div>
-                            <span style="color:white;">Tên Đăng Nhập </span>
+                            <span style="color:#6b9876;">Tên Đăng Nhập </span>
                             <input type="text" name="username">
                         </div> 	
                         <div> 
-                            <span class="word" style="color:white;margin-right:33px;">Mật Khẩu </span>
+                            <span class="word" style="color:#6b9876;margin-right:33px;">Mật Khẩu </span>
                             <input type="password" name="pass">
                         </div>
-                        <div class="g-recaptcha"
-                             data-sitekey="6LelZAsTAAAAAAv1ADYDnq8AzbmPmbMvjh-xhfgB"></div>
                         <input type="hidden" value="login" name="command">
-                        <input id="tb" type="submit" value="Đăng Nhập" style="background:rgba(0,0,0,0.4);border:1px solid black;margin-top: 55px;"> 
-
-                        <script>
-                            grecaptcha.ready(function () {
-                                grecaptcha.execute('6Ldy2YMUAAAAAG2CYNQEAeWH3iVAMPKALvw2enf1', {action: 'action_name'})
-                                        .then(function (token) {
-// Verify the token on the server.
-                                        });
-                            });
-                        </script>
+                        <input id="tb" type="submit" value="Đăng Nhập" style="background:#6b9876;border:1px solid black;margin-top: 55px;"> 
                     </form>
                 </div>
             </div>

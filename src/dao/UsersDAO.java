@@ -53,7 +53,7 @@ public class UsersDAO {
         ResultSet rs = ps.executeQuery();
         Users u = new Users();
         while (rs.next()) {
-            u.setStt(rs.getLong("stt"));
+            u.setStt(rs.getLong("id"));
             count++;
         }
         return count;
@@ -102,7 +102,7 @@ public class UsersDAO {
         ArrayList<Users> list = new ArrayList<>();
         while (rs.next()) {
             Users user = new Users();
-            user.setStt(rs.getLong("stt"));
+            user.setStt(rs.getLong("id"));
             user.setHovaten(rs.getString("hovaten"));
             user.setUserName(rs.getString("user_Name"));
             user.setUserPass(rs.getString("user_Pass"));
@@ -113,7 +113,7 @@ public class UsersDAO {
         return list;
     }
 
-    // kiểm tra người dùng tồn tại chưa
+    // kiá»ƒm tra ngÆ°á»�i dÃ¹ng tá»“n táº¡i chÆ°a
     public boolean checkEmail(String username) {
         Connection connection = DBConnect.getConnection();
         String sql = "SELECT * FROM users WHERE user_email = '" + username + "'";
@@ -148,7 +148,7 @@ public class UsersDAO {
         return ps.executeUpdate() == 1;
     }
 
-    // kiểm tra đăng nhập
+    // kiá»ƒm tra Ä‘Äƒng nháº­p
     public static Users login(String username, String password) throws SQLException {
         Connection conn = DBConnect.getConnection();
         PreparedStatement ps = null;

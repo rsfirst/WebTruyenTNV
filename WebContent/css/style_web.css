@@ -282,7 +282,7 @@ right
 }
 
 body {
-	background-image: url(../bgImages/footer-bg.jpg);
+	/* background-image: url(../bgImages/footer-bg.jpg); */
 	background-repeat: no-repeat;
 	background-position: bottom right
 }

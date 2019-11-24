@@ -54,7 +54,7 @@
 </script>
 </head>
 <body>
-	<div class="truyencv-footer">
+	<div class="truyencv-footer" style="background: url(bgImages/footer-bg.jpg) fixed">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4">

@@ -209,7 +209,7 @@ INSERT INTO `trangphongthuy` VALUES (5, 'images/a.jpg', 'Cách giảm bớt vậ
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `stt` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `hovaten` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `user_Name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `user_Pass` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
@@ -219,7 +219,7 @@ CREATE TABLE `users`  (
   `user_role` int(255) NULL DEFAULT NULL,
   `user_kichhoat` int(255) NOT NULL,
   `user_code` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`stt`, `user_kichhoat`) USING BTREE
+  PRIMARY KEY (`id`, `user_kichhoat`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1544693423615 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

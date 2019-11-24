@@ -59,7 +59,7 @@
             });
         </script>
     </head>
-    <body>
+    <body> 
 
 
         <!---->
@@ -73,10 +73,10 @@
             }
         %>
         <div class="container" style="margin-top: 60px;">
-            <div class="content">
+            <div class="content" style="background: white;">
                 <div class="content-top">
-                    <h3 class="future" style="color:white;">Nhà ,Đất Bán Tại Đà Nẵng</h3>
-                    <div class="content-top-in">
+                    <h3 class="future" style="padding-top:0.5em; color:#6b9876;font-size: 30px";>Truyện Top</h3>
+                    <div class="content-top-in" style="padding-top: 0px">
                         <%
                             request.setCharacterEncoding("UTF-8");
                             response.setCharacterEncoding("UTF-8");
@@ -84,7 +84,7 @@
                         %>
                         <div class="col-md-3 md-col" style="margin-top:30px">
                             <div  class="col-md" style="background:rgba(0,0,0,0.4);box-shadow:2px 2px 16px 0px black">
-                                <div><i class="fas fa-home" style="color: white;" ><%=p.getHinhthuc()%></i><span><i style="float: right;color: white;" class="far fa-calendar-alt"><%=p.getNgaydang()%></i></span></div>
+                                <div><i class="fas fa-book" style="color: white;" ><%=p.getHinhthuc()%></i><span><i style="float: right;color: white;" class="far fa-calendar-alt"><%=p.getNgaydang()%></i></span></div>
                                 <div class="clearfix">
 
                                 </div>
@@ -143,7 +143,7 @@
             <div class="content">
                 <div class="content-top">
                     <h3 class="future" style="color:white;">Nhà ,Đất Cho Thuê</h3>
-                    <div class="content-top-in">
+                    <div class="content-top-in" style="padding: 0px">
                         <%
                             request.setCharacterEncoding("UTF-8");
                             response.setCharacterEncoding("UTF-8");
