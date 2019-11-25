@@ -14,7 +14,7 @@
  Date: 22/12/2018 19:35:01
 */
 
-SET NAMES utf8mb4;
+SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -45,9 +45,9 @@ INSERT INTO `category` VALUES (8, 'Bán loại đất bất động sản');
 DROP TABLE IF EXISTS `category_chothue`;
 CREATE TABLE `category_chothue`  (
   `category_chothue_id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_chothue_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `category_chothue_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`category_chothue_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of category_chothue
@@ -69,27 +69,27 @@ DROP TABLE IF EXISTS `chothue`;
 CREATE TABLE `chothue`  (
   `chothue_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_chothue_id` int(11) NOT NULL,
-  `chothue_loainhadat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `chothue_loainhadat` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `chothue_gia` double(255, 0) NULL DEFAULT NULL,
   `chothue_dientich` double(255, 0) NULL DEFAULT NULL,
-  `chothue_diadiem` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `chothue_diadiem` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `chothue_matien` double(255, 0) NULL DEFAULT NULL,
   `chothue_duongtruocnha` double(255, 0) NULL DEFAULT NULL,
-  `chothue_huongnha` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `chothue_huongnha` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `chothue_sotang` double(255, 0) NULL DEFAULT NULL,
   `chothue_sophong` int(255) NULL DEFAULT NULL,
   `chothue_sotoilet` int(255) NULL DEFAULT NULL,
-  `chothue_tieude` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `chothue_mota` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `chothue_hinhanh` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `chothue_hoten` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `chothue_diachi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `chothue_dienthoai` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
-  `chothue_email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL,
+  `chothue_tieude` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `chothue_mota` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `chothue_hinhanh` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `chothue_hoten` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `chothue_diachi` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `chothue_dienthoai` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
+  `chothue_email` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `chothue_status` int(255) NULL DEFAULT NULL,
   `chothue_ngaydang` date NULL DEFAULT NULL,
   PRIMARY KEY (`chothue_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of chothue
