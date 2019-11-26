@@ -164,13 +164,11 @@ ul.callbacks_tabs.callbacks1_tabs {
 		</ul>
 	</div>
 
-	<!--Nơi Nhà ,Đất Cho Thuê-->
 	<div class="container">
 		<div class="content" style="background: white; border-radius: 1em">
 			<div class="content-top">
 				<h3 class="future"
-					style="padding-top: 0.5em; color: #6b9876; font-size: 30px";>Nhà
-					,Đất Cho Thuê</h3>
+					style="padding-top: 0.5em; color: #6b9876; font-size: 30px";>Truyện mới</h3>
 				<div class="content-top-in" style="padding-top: 3px;">
 					<%
 						request.setCharacterEncoding("UTF-8");

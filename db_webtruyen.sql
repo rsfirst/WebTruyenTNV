@@ -1,44 +1,42 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
--- https://www.phpmyadmin.net/
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 26, 2019 lúc 09:06 AM
--- Phiên bản máy phục vụ: 10.4.8-MariaDB
--- Phiên bản PHP: 7.3.11
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2019 at 03:04 PM
+-- Server version: 5.6.20
+-- PHP Version: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Cơ sở dữ liệu: `muabannhadat`
+-- Database: `muabannhadat`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `category` (
-  `category_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `category` (
+`category_id` int(11) NOT NULL,
   `category_name` text COLLATE utf8_unicode_ci NOT NULL,
   `menu_id` int(11) NOT NULL,
   `link_menu` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `order_number` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=11 ;
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`, `menu_id`, `link_menu`, `status`, `order_number`) VALUES
@@ -54,16 +52,16 @@ INSERT INTO `category` (`category_id`, `category_name`, `menu_id`, `link_menu`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category_chothue`
+-- Table structure for table `category_chothue`
 --
 
-CREATE TABLE `category_chothue` (
-  `category_chothue_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `category_chothue` (
+`category_chothue_id` int(11) NOT NULL,
   `category_chothue_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=10 ;
 
 --
--- Đang đổ dữ liệu cho bảng `category_chothue`
+-- Dumping data for table `category_chothue`
 --
 
 INSERT INTO `category_chothue` (`category_chothue_id`, `category_chothue_name`) VALUES
@@ -80,61 +78,61 @@ INSERT INTO `category_chothue` (`category_chothue_id`, `category_chothue_name`) 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chothue`
+-- Table structure for table `chothue`
 --
 
-CREATE TABLE `chothue` (
-  `chothue_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `chothue` (
+`chothue_id` int(11) NOT NULL,
   `category_chothue_id` int(11) NOT NULL,
-  `chothue_loainhadat` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `chothue_loainhadat` text COLLATE utf8_unicode_ci,
   `chothue_gia` double(255,0) DEFAULT NULL,
   `chothue_dientich` double(255,0) DEFAULT NULL,
-  `chothue_diadiem` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `chothue_diadiem` text COLLATE utf8_unicode_ci,
   `chothue_matien` double(255,0) DEFAULT NULL,
   `chothue_duongtruocnha` double(255,0) DEFAULT NULL,
-  `chothue_huongnha` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `chothue_huongnha` text COLLATE utf8_unicode_ci,
   `chothue_sotang` double(255,0) DEFAULT NULL,
   `chothue_sophong` int(255) DEFAULT NULL,
   `chothue_sotoilet` int(255) DEFAULT NULL,
-  `chothue_tieude` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `chothue_mota` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `chothue_hinhanh` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `chothue_hoten` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `chothue_diachi` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `chothue_dienthoai` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `chothue_email` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `chothue_tieude` text COLLATE utf8_unicode_ci,
+  `chothue_mota` text COLLATE utf8_unicode_ci,
+  `chothue_hinhanh` text COLLATE utf8_unicode_ci,
+  `chothue_hoten` text COLLATE utf8_unicode_ci,
+  `chothue_diachi` text COLLATE utf8_unicode_ci,
+  `chothue_dienthoai` text COLLATE utf8_unicode_ci,
+  `chothue_email` text COLLATE utf8_unicode_ci,
   `chothue_status` int(255) DEFAULT NULL,
   `chothue_ngaydang` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=13 ;
 
 --
--- Đang đổ dữ liệu cho bảng `chothue`
+-- Dumping data for table `chothue`
 --
 
 INSERT INTO `chothue` (`chothue_id`, `category_chothue_id`, `chothue_loainhadat`, `chothue_gia`, `chothue_dientich`, `chothue_diadiem`, `chothue_matien`, `chothue_duongtruocnha`, `chothue_huongnha`, `chothue_sotang`, `chothue_sophong`, `chothue_sotoilet`, `chothue_tieude`, `chothue_mota`, `chothue_hinhanh`, `chothue_hoten`, `chothue_diachi`, `chothue_dienthoai`, `chothue_email`, `chothue_status`, `chothue_ngaydang`) VALUES
-(3, 1, 'Cho thuê căn hộ chung cư', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Tui cho thuê căn hộ đây ', 'asd', 'images/chothue1.jpg', 'Nguyễn Công Phượng', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 1, '2018-12-18'),
-(4, 2, 'Cho thuê nhà riêng', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Cho thuê căn nhà này !!!', 'asd', 'images/chothue2.jpg', 'Bùi Tiến Dũng', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 1, '2018-12-18'),
-(5, 3, 'Cho thuê nhà mặt phố', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Căn nhà cần cho thuê', 'asd', 'images/chothue3.jpg', 'Đỗ Duy Mạnh', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 1, '2018-12-18'),
-(6, 1, 'Cho thuê căn hộ chung cư', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Cho thuê nhà', 'asd', 'images/chothue4.jpg', 'Trần Đình Trọng', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 1, '2018-12-18'),
+(3, 1, 'Truyện Mới', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Trọng Sinh Chi Ma Giáo Giáo Chủ', ' Ngoài ý muốn chết đi, Sở Hưu phát hiện mình vậy mà xuyên qua đến thế giới trò chơi 《 Đại Giang Hồ 》 bên trong, trở thành trong trò chơi còn không có trưởng thành, màn thứ ba sau cùng nhân vật phản diện đại Boss, họa loạn giang hồ Ma giáo giáo chủ!<br /><br /> 《 Đại Giang Hồ 》 ở trong dung hội vô số võ hiệp bối cảnh, có Đông Đảo chi vương Thiên Tử vọng khí, cười nói giết người. Có Cái Bang chi chủ chưởng ra Hàng Long, uy chấn giang hồ. Cũng có phi đao truyền nhân đao toái hư không, thành tựu tuyệt hưởng.<br /><br /> Trùng sinh một thế, Sở Hưu đến tột cùng là lại đi một lần số mệnh an bài nhân vật phản diện con đường, vẫn là đạp lên như núi xương trắng viết lên một đoạn ma diễm ngập trời giang hồ truyền thuyết?<br /><br /> "Giết người tru tâm, trảm thảo trừ căn. Ta gọi Sở Hưu, vạn sự đều yên hưu." <br /><br />Phong Thất Nguyệt quyển thứ hai tác phẩm sau Tối Cường Phản Phái Hệ Thống.<br /><br />* Các bạn ủng hộ bằng 3 phương thức:<br />1. Bấm vào 5 sao bên phải màn hình.<br />2. Bấm đề cử, chọn số Nguyệt phiếu. ( Chỉ áp dụng với bạn có Tài khoản của truyencv.com)<br />3. Ấn nút Tặng đậu cuối chương.<br />Chân thành cảm ơn! ', 'images/trongsinh.jpg', 'Phong Thất Nguyệt', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 1, '2018-12-18'),
+(4, 2, 'Cho thuê nhà riêng', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Cho thuê căn nhà này !!!', 'asd', 'images/chothue2.jpg', 'Bùi Tiến Dũng', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 0, '2018-12-18'),
+(5, 3, 'Cho thuê nhà mặt phố', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Căn nhà cần cho thuê', 'asd', 'images/chothue3.jpg', 'Đỗ Duy Mạnh', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 0, '2018-12-18'),
+(6, 1, 'Cho thuê căn hộ chung cư', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Cho thuê nhà', 'asd', 'images/chothue4.jpg', 'Trần Đình Trọng', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 0, '2018-12-18'),
 (7, 2, 'Cho thuê nhà riêng', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Cho thuê nhà', 'asd', 'images/chothue5.jpg', 'Đoàn Văn Hậu', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 0, '2018-12-18'),
 (12, 1, 'Cho thuê căn hộ chung cư', 2, 75, '125 trần huy dưng,quận ba đình,tp hà nội', 2, 5, 'Đông', 2, 1, 1, 'Cho thuê nhà', 'asd', 'images/banner1.png', 'Lương Xuân Trường', '126 Lê Thị Sáu', '93474627', 'kiethao112@yahoo.com.vn', 0, '2018-12-18');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `dangtinmua`
+-- Table structure for table `dangtinmua`
 --
 
-CREATE TABLE `dangtinmua` (
-  `stt` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ten` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdt` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `noidung` text COLLATE utf8_unicode_ci DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `dangtinmua` (
+  `stt` text COLLATE utf8_unicode_ci,
+  `ten` text COLLATE utf8_unicode_ci,
+  `sdt` text COLLATE utf8_unicode_ci,
+  `title` text COLLATE utf8_unicode_ci,
+  `noidung` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `dangtinmua`
+-- Dumping data for table `dangtinmua`
 --
 
 INSERT INTO `dangtinmua` (`stt`, `ten`, `sdt`, `title`, `noidung`) VALUES
@@ -145,19 +143,19 @@ INSERT INTO `dangtinmua` (`stt`, `ten`, `sdt`, `title`, `noidung`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `menu`
+-- Table structure for table `menu`
 --
 
-CREATE TABLE `menu` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `menu` (
+`id` int(11) NOT NULL,
   `menu_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `link_menu` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `order_number` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
--- Đang đổ dữ liệu cho bảng `menu`
+-- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `menu_name`, `link_menu`, `status`, `order_number`) VALUES
@@ -173,18 +171,18 @@ INSERT INTO `menu` (`id`, `menu_name`, `link_menu`, `status`, `order_number`) VA
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `noi_ngoai_that`
+-- Table structure for table `noi_ngoai_that`
 --
 
-CREATE TABLE `noi_ngoai_that` (
+CREATE TABLE IF NOT EXISTS `noi_ngoai_that` (
   `ID_noingoaithat` int(255) NOT NULL,
-  `image_noingoaithat` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tieude_noingoaithat` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `noidung_noingoaithat` text COLLATE utf8_unicode_ci DEFAULT NULL
+  `image_noingoaithat` text COLLATE utf8_unicode_ci,
+  `tieude_noingoaithat` text COLLATE utf8_unicode_ci,
+  `noidung_noingoaithat` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `noi_ngoai_that`
+-- Dumping data for table `noi_ngoai_that`
 --
 
 INSERT INTO `noi_ngoai_that` (`ID_noingoaithat`, `image_noingoaithat`, `tieude_noingoaithat`, `noidung_noingoaithat`) VALUES
@@ -197,63 +195,64 @@ INSERT INTO `noi_ngoai_that` (`ID_noingoaithat`, `image_noingoaithat`, `tieude_n
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `product`
 --
 
-CREATE TABLE `product` (
-  `product_id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `product` (
+`product_id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
-  `product_hinhthuc` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_hinhthuc` text COLLATE utf8_unicode_ci,
   `product_name` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `product_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `product_price` double DEFAULT NULL,
-  `product_description` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `product_sdt` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_description` text COLLATE utf8_unicode_ci,
+  `product_sdt` text COLLATE utf8_unicode_ci,
   `product_dientich` double(255,0) DEFAULT NULL,
-  `product_hoten` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `product_vitri` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `product_ngaydang` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+  `product_hoten` text COLLATE utf8_unicode_ci,
+  `product_vitri` text COLLATE utf8_unicode_ci,
+  `product_ngaydang` date DEFAULT NULL,
+  `status` varchar(45) COLLATE utf8_unicode_ci DEFAULT '0'
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=39 ;
 
 --
--- Đang đổ dữ liệu cho bảng `product`
+-- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `category_id`, `product_hinhthuc`, `product_name`, `product_image`, `product_price`, `product_description`, `product_sdt`, `product_dientich`, `product_hoten`, `product_vitri`, `product_ngaydang`) VALUES
-(1, 1, 'Bán Căn Hộ Chung Cư', 'Nhà Đẹp Cần Bán(pmm)', 'images/cap4-7.jpg', 2.6, 'Do cần vốn kinh doanh bán nhanh nhà cấp 4 K19 Lê Đình Thám ngay chợ Mới khu vực đông đúc tiện sinh hoạt hộ khẩu trung tâm. \r\nNhà có diện tích đất 95m2 kiệt rộng 2.5-3m, gia đình mới xây ở được 1 năm kiên cố chắc chắn,ngôi nhà được xây dựng rất tâm huyết ,nay bán lại cho ai thực sự có nhu cầu \r\nBán nhanh có thương lượng cho người thiện chí mua.\r\n\r\nLiên hệ cc anh Dũng \r\nGiá: 2,6 tỷ Diện tích: 95 mét vuông\r\npmmmmmmmmmmmmmmmmmmmmmmmmmmm', '01216309942', 95, 'Nguyễn Tấn Dũng', 'K19 Lê Đình Thám,TP. Đà Nẵng', '2018-10-18'),
-(2, 1, 'Bán Căn Hộ Chung Cư', 'Ai Mua Không', 'images/cap4-5.jpg', 4.1, 'Bán nhà An Thượng 15, phường Mỹ An, quận Ngũ Hành Sơn\r\n- Nhà cấp 4 đẹp, DTĐ 75m2, hướng Đông, đường 3.5m, \r\nlề 2.5m, khu quy hoạch phố đi bộ, gần biển, gần đường Châu Thị Vĩnh Tế, khu du lịch sầm uất,\r\n thuận tiện ở hoặc đầu tư ( nhà chính chủ chưa qua đầu tư )\r\n- Giá bán 4.150 tỷ, thương lượng chính chủ\r\n*/ Vì một số lý do nên chúng tôi không đăng hình thật của nhà. Mong quý khách thông cảm \r\n( quý anh chị quan tâm xin liên hệ để được tư vấn cụ thể và xem nhà trực tiếp. Xin cảm ơn )', '0935875923', 75, 'Lương Văn Tấn', 'An Thượng 15, phường Mỹ An, quận Ngũ Hành Sơn', '2018-10-04'),
-(3, 1, 'Bán Căn Hộ Chung Cư', 'Bán Nhà Cấp 4', 'images/cap4-6.jpg', 4.5, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '0925759874', 68, 'Lê Cát Bá', '65/30 Phạm Như Xương, Hoà Khánh Nam.', '2018-10-05'),
-(4, 2, 'Bán nhà biệt thự,liền kề', 'Nhà Sang Trọng', 'images/cap3-3.jpg', 2.5, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-14'),
-(5, 2, 'Bán nhà biệt thự,liền kề', 'Nhà Nhà 2 Tầng Kiên Cố', 'images/cap3-2.jpg', 4.1, 'Nhà mặt tiền hẻm 98 Dương Cát Lợi, thị trấn Nhà Bè ngay cầu Phú Xuân \r\n-Diện tích: 5x11m 2 lầu, sân thượng,4 phòng ngủ, 5WC bố trí riêng từng phòng, mặt tiền hẻm ô tô 2 chiếc tránh nhau dễ dàng. Đặc biệt nội thất full cơ bản như hình.\r\n-Sổ hồng riêng hỗ trợ vay ngân hàng 80% nếu quý khách khách cần.\r\n-Hướng Đông. Shhc. Giá: 3.1 tỷ', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-16'),
-(6, 2, 'Bán nhà biệt thự,liền kề', 'Nhà Đẹp Đường Phan Thúc Trực', 'images/cap3-1.jpg', 5.2, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-04'),
-(7, 3, 'Bán nhà mặt phố', 'Bán Nhà Mới Kiệt OTO', 'images/cap2-3.jpg', 3.2, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-12'),
-(8, 3, 'Bán nhà mặt phố', 'Bán Nhà Hà Huy Tập', 'images/cap2-2.jpg', 3.1, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-16'),
-(9, 3, 'Bán nhà mặt phố', 'Mình Cần Cho Thuê!', 'images/cap2-1.jpg', 3.1, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-17'),
-(10, 5, 'Bán đất', 'Nhà Biệt Thự MAX kinh', 'images/bietthu3.jpg', 8.5, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-17'),
-(11, 5, 'Bán đất', 'Cần Ra Đi Miếng Đất', 'images/datban.jpg', 9, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-18'),
-(12, 5, 'Bán đất', 'Biệt Thự Sang Chảnh', 'images/bietthu1.jpg', 6.1, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-12'),
-(33, 3, 'Bán nhà mặt phố', 'mua bán quân hải châu , đà nẵng', 'images/86_1090.jpg', 8.7, 'nhà đẹp 2 tâng kiên cố', '0978458756', 120, 'lê anh hiếu', '120 lê lợi', '2018-10-16'),
-(34, 2, 'Bán nhà biệt thự,liền kề', 'can mua nha', 'images/3.jpg', 5, 'Cơ hội trở thành hàng xóm của Park Hang Seo\r\n\r\nNhà liền kề thiết kế chuẩn Châu Âu sang trọng \r\nCách trung tâm tp 5km . \r\nGần trung tâm hành chính Q. Liên Chiểu. trường ĐH, CĐ , trường cấp 1.2.3 , bệnh viện , chợ trong bán kính 1km ......\r\nCách biển 200m\r\n\r\nNhà mới xây dựng , 2 tầng , 2 tấm . \r\nGồm 2PN, 1 bếp , 2 toilet , 1 PT . Có sân sau phơi đồ, 1 nhà kho để đồ , sân trước để xe rộng rãi .\r\nKhu quân nhân ở nên an ninh tốt. \r\nHướng : ĐÔNG BẮC \r\nDT: 76m2\r\nDtsd : 130m2\r\nBề ngang : 5m \r\nChiều dài : 15.2m\r\n\r\nNhà 2 mặt tiền , đỗ oto thoải mái . vuông vức ko xiêu vẹo.khu dân cư sạch sẽ .yên tĩnh \r\nBao lấy sổ \r\nLhcc : 0762509746 tân', '0934754627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10'),
-(35, 2, 'Bán nhà biệt thự,liền kề', 'can mua nha', 'images/3.jpg', 5, 'Cơ hội trở thành hàng xóm của Park Hang Seo\r\n\r\nNhà liền kề thiết kế chuẩn Châu Âu sang trọng \r\nCách trung tâm tp 5km . \r\nGần trung tâm hành chính Q. Liên Chiểu. trường ĐH, CĐ , trường cấp 1.2.3 , bệnh viện , chợ trong bán kính 1km ......\r\nCách biển 200m\r\n\r\nNhà mới xây dựng , 2 tầng , 2 tấm . \r\nGồm 2PN, 1 bếp , 2 toilet , 1 PT . Có sân sau phơi đồ, 1 nhà kho để đồ , sân trước để xe rộng rãi .\r\nKhu quân nhân ở nên an ninh tốt. \r\nHướng : ĐÔNG BẮC \r\nDT: 76m2\r\nDtsd : 130m2\r\nBề ngang : 5m \r\nChiều dài : 15.2m\r\n\r\nNhà 2 mặt tiền , đỗ oto thoải mái . vuông vức ko xiêu vẹo.khu dân cư sạch sẽ .yên tĩnh \r\nBao lấy sổ \r\nLhcc : 0762509746 tân', '0934754627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10'),
-(36, 2, 'Bán nhà biệt thự,liền kề', 'can mua nha', 'images/3.jpg', 5, 'Cơ hội trở thành hàng xóm của Park Hang Seo\r\n\r\nNhà liền kề thiết kế chuẩn Châu Âu sang trọng \r\nCách trung tâm tp 5km . \r\nGần trung tâm hành chính Q. Liên Chiểu. trường ĐH, CĐ , trường cấp 1.2.3 , bệnh viện , chợ trong bán kính 1km ......\r\nCách biển 200m\r\n\r\nNhà mới xây dựng , 2 tầng , 2 tấm . \r\nGồm 2PN, 1 bếp , 2 toilet , 1 PT . Có sân sau phơi đồ, 1 nhà kho để đồ , sân trước để xe rộng rãi .\r\nKhu quân nhân ở nên an ninh tốt. \r\nHướng : ĐÔNG BẮC \r\nDT: 76m2\r\nDtsd : 130m2\r\nBề ngang : 5m \r\nChiều dài : 15.2m\r\n\r\nNhà 2 mặt tiền , đỗ oto thoải mái . vuông vức ko xiêu vẹo.khu dân cư sạch sẽ .yên tĩnh \r\nBao lấy sổ \r\nLhcc : 0762509746 tân', '0934754627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10'),
-(37, 1, 'Bán Căn Hộ Chung Cư', 'can mua nha', 'images/1.jpg', 5, 'asdp[aldsp[asdlas[dpasldasdasdasdasdasdasdasdasdasdasasdassasadsadsadsd', '093474627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10'),
-(38, 1, 'Bán Căn Hộ Chung Cư', 'can mua nha', 'images/1.jpg', 5, 'asdp[aldsp[asdlas[dpasldasdasdasdasdasdasdasdasdasdasasdassasadsadsadsd', '093474627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10');
+INSERT INTO `product` (`product_id`, `category_id`, `product_hinhthuc`, `product_name`, `product_image`, `product_price`, `product_description`, `product_sdt`, `product_dientich`, `product_hoten`, `product_vitri`, `product_ngaydang`, `status`) VALUES
+(1, 1, 'Truyện Mới', 'Trọng Sinh Chi Ma Giáo Giáo Chủ', 'images/trongsinh.jpg', 2.6, ' Ngoài ý muốn chết đi, Sở Hưu phát hiện mình vậy mà xuyên qua đến thế giới trò chơi 《 Đại Giang Hồ 》 bên trong, trở thành trong trò chơi còn không có trưởng thành, màn thứ ba sau cùng nhân vật phản diện đại Boss, họa loạn giang hồ Ma giáo giáo chủ!<br /><br /> 《 Đại Giang Hồ 》 ở trong dung hội vô số võ hiệp bối cảnh, có Đông Đảo chi vương Thiên Tử vọng khí, cười nói giết người. Có Cái Bang chi chủ chưởng ra Hàng Long, uy chấn giang hồ. Cũng có phi đao truyền nhân đao toái hư không, thành tựu tuyệt hưởng.<br /><br /> Trùng sinh một thế, Sở Hưu đến tột cùng là lại đi một lần số mệnh an bài nhân vật phản diện con đường, vẫn là đạp lên như núi xương trắng viết lên một đoạn ma diễm ngập trời giang hồ truyền thuyết?<br /><br /> "Giết người tru tâm, trảm thảo trừ căn. Ta gọi Sở Hưu, vạn sự đều yên hưu." <br /><br />Phong Thất Nguyệt quyển thứ hai tác phẩm sau Tối Cường Phản Phái Hệ Thống.<br /><br />* Các bạn ủng hộ bằng 3 phương thức:<br />1. Bấm vào 5 sao bên phải màn hình.<br />2. Bấm đề cử, chọn số Nguyệt phiếu. ( Chỉ áp dụng với bạn có Tài khoản của truyencv.com)<br />3. Ấn nút Tặng đậu cuối chương.<br />Chân thành cảm ơn! ', '01216309942', 95, 'Phong Thất Nguyệt', 'Phong Thất Nguyệt', '2018-10-18', '1'),
+(2, 1, 'Bán Căn Hộ Chung Cư', 'Ai Mua Không', 'images/cap4-5.jpg', 4.1, 'Bán nhà An Thượng 15, phường Mỹ An, quận Ngũ Hành Sơn\r\n- Nhà cấp 4 đẹp, DTĐ 75m2, hướng Đông, đường 3.5m, \r\nlề 2.5m, khu quy hoạch phố đi bộ, gần biển, gần đường Châu Thị Vĩnh Tế, khu du lịch sầm uất,\r\n thuận tiện ở hoặc đầu tư ( nhà chính chủ chưa qua đầu tư )\r\n- Giá bán 4.150 tỷ, thương lượng chính chủ\r\n*/ Vì một số lý do nên chúng tôi không đăng hình thật của nhà. Mong quý khách thông cảm \r\n( quý anh chị quan tâm xin liên hệ để được tư vấn cụ thể và xem nhà trực tiếp. Xin cảm ơn )', '0935875923', 75, 'Lương Văn Tấn', 'An Thượng 15, phường Mỹ An, quận Ngũ Hành Sơn', '2018-10-04', NULL),
+(3, 1, 'Bán Căn Hộ Chung Cư', 'Bán Nhà Cấp 4', 'images/cap4-6.jpg', 4.5, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '0925759874', 68, 'Lê Cát Bá', '65/30 Phạm Như Xương, Hoà Khánh Nam.', '2018-10-05', NULL),
+(4, 2, 'Bán nhà biệt thự,liền kề', 'Nhà Sang Trọng', 'images/cap3-3.jpg', 2.5, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-14', NULL),
+(5, 2, 'Bán nhà biệt thự,liền kề', 'Nhà Nhà 2 Tầng Kiên Cố', 'images/cap3-2.jpg', 4.1, 'Nhà mặt tiền hẻm 98 Dương Cát Lợi, thị trấn Nhà Bè ngay cầu Phú Xuân \r\n-Diện tích: 5x11m 2 lầu, sân thượng,4 phòng ngủ, 5WC bố trí riêng từng phòng, mặt tiền hẻm ô tô 2 chiếc tránh nhau dễ dàng. Đặc biệt nội thất full cơ bản như hình.\r\n-Sổ hồng riêng hỗ trợ vay ngân hàng 80% nếu quý khách khách cần.\r\n-Hướng Đông. Shhc. Giá: 3.1 tỷ', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-16', NULL),
+(6, 2, 'Bán nhà biệt thự,liền kề', 'Nhà Đẹp Đường Phan Thúc Trực', 'images/cap3-1.jpg', 5.2, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-04', NULL),
+(7, 3, 'Bán nhà mặt phố', 'Bán Nhà Mới Kiệt OTO', 'images/cap2-3.jpg', 3.2, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-12', NULL),
+(8, 3, 'Bán nhà mặt phố', 'Bán Nhà Hà Huy Tập', 'images/cap2-2.jpg', 3.1, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-16', NULL),
+(9, 3, 'Bán nhà mặt phố', 'Mình Cần Cho Thuê!', 'images/cap2-1.jpg', 3.1, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-17', NULL),
+(10, 5, 'Bán đất', 'Nhà Biệt Thự MAX kinh', 'images/bietthu3.jpg', 8.5, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-17', NULL),
+(11, 5, 'Bán đất', 'Cần Ra Đi Miếng Đất', 'images/datban.jpg', 9, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-18', NULL),
+(12, 5, 'Bán đất', 'Biệt Thự Sang Chảnh', 'images/bietthu1.jpg', 6.1, 'Cần vốn làm ăn nên mình nhượng lại ngôi nhà 3 mặt kiệt oto 65/30 Phạm Như Xương, Hoà Khánh Nam.\r\n\r\nVề pháp lý không vướng quy hoạch, thuộc khu số 1 Bắc Ga đã phê duyệt, lại nằm ngay vị trí có đường 5,5m lề 3m đi qua, nên tương lai sẽ là nhà mặt tiền. Thuận tiện kinh doanh buôn bán.\r\n\r\nVị trí nằm tại kiệt lớn 65 Phạm Như Xương, ngay khu sầm uất sinh viên các trường Sư Phạm, Bách Khoa, Kinh Tế kế hoạch..\r\n\r\ndt 67,7m2\r\n3 mặt kiệt lớn\r\nNhà có 3 căn đang cho thuê ổn định. quá tốt cho vợ ck trẻ vừa ở vừa kinh doanh buôn bán và đợi quy hoạch tuyến đường trong 2 năm nữa sẽ thi công.\r\n\r\nthông tin đã có trên ảnh đính kèm. ai cần tìm hiểu có thể cầm sổ đỏ po lên phòng quy hoạch UBND quận Liên Chiểu để hỏi về pháp lý. cảm ơn Chợ tốt đã đăng tin!', '01216309942', 95, 'Hoàng Thế Nam', '126 Điện Biên Phủ,Quận Thanh Khê,TP.Đà Nẵng', '2018-10-12', NULL),
+(33, 3, 'Bán nhà mặt phố', 'mua bán quân hải châu , đà nẵng', 'images/86_1090.jpg', 8.7, 'nhà đẹp 2 tâng kiên cố', '0978458756', 120, 'lê anh hiếu', '120 lê lợi', '2018-10-16', NULL),
+(34, 2, 'Bán nhà biệt thự,liền kề', 'can mua nha', 'images/3.jpg', 5, 'Cơ hội trở thành hàng xóm của Park Hang Seo\r\n\r\nNhà liền kề thiết kế chuẩn Châu Âu sang trọng \r\nCách trung tâm tp 5km . \r\nGần trung tâm hành chính Q. Liên Chiểu. trường ĐH, CĐ , trường cấp 1.2.3 , bệnh viện , chợ trong bán kính 1km ......\r\nCách biển 200m\r\n\r\nNhà mới xây dựng , 2 tầng , 2 tấm . \r\nGồm 2PN, 1 bếp , 2 toilet , 1 PT . Có sân sau phơi đồ, 1 nhà kho để đồ , sân trước để xe rộng rãi .\r\nKhu quân nhân ở nên an ninh tốt. \r\nHướng : ĐÔNG BẮC \r\nDT: 76m2\r\nDtsd : 130m2\r\nBề ngang : 5m \r\nChiều dài : 15.2m\r\n\r\nNhà 2 mặt tiền , đỗ oto thoải mái . vuông vức ko xiêu vẹo.khu dân cư sạch sẽ .yên tĩnh \r\nBao lấy sổ \r\nLhcc : 0762509746 tân', '0934754627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10', NULL),
+(35, 2, 'Bán nhà biệt thự,liền kề', 'can mua nha', 'images/3.jpg', 5, 'Cơ hội trở thành hàng xóm của Park Hang Seo\r\n\r\nNhà liền kề thiết kế chuẩn Châu Âu sang trọng \r\nCách trung tâm tp 5km . \r\nGần trung tâm hành chính Q. Liên Chiểu. trường ĐH, CĐ , trường cấp 1.2.3 , bệnh viện , chợ trong bán kính 1km ......\r\nCách biển 200m\r\n\r\nNhà mới xây dựng , 2 tầng , 2 tấm . \r\nGồm 2PN, 1 bếp , 2 toilet , 1 PT . Có sân sau phơi đồ, 1 nhà kho để đồ , sân trước để xe rộng rãi .\r\nKhu quân nhân ở nên an ninh tốt. \r\nHướng : ĐÔNG BẮC \r\nDT: 76m2\r\nDtsd : 130m2\r\nBề ngang : 5m \r\nChiều dài : 15.2m\r\n\r\nNhà 2 mặt tiền , đỗ oto thoải mái . vuông vức ko xiêu vẹo.khu dân cư sạch sẽ .yên tĩnh \r\nBao lấy sổ \r\nLhcc : 0762509746 tân', '0934754627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10', NULL),
+(36, 2, 'Bán nhà biệt thự,liền kề', 'can mua nha', 'images/3.jpg', 5, 'Cơ hội trở thành hàng xóm của Park Hang Seo\r\n\r\nNhà liền kề thiết kế chuẩn Châu Âu sang trọng \r\nCách trung tâm tp 5km . \r\nGần trung tâm hành chính Q. Liên Chiểu. trường ĐH, CĐ , trường cấp 1.2.3 , bệnh viện , chợ trong bán kính 1km ......\r\nCách biển 200m\r\n\r\nNhà mới xây dựng , 2 tầng , 2 tấm . \r\nGồm 2PN, 1 bếp , 2 toilet , 1 PT . Có sân sau phơi đồ, 1 nhà kho để đồ , sân trước để xe rộng rãi .\r\nKhu quân nhân ở nên an ninh tốt. \r\nHướng : ĐÔNG BẮC \r\nDT: 76m2\r\nDtsd : 130m2\r\nBề ngang : 5m \r\nChiều dài : 15.2m\r\n\r\nNhà 2 mặt tiền , đỗ oto thoải mái . vuông vức ko xiêu vẹo.khu dân cư sạch sẽ .yên tĩnh \r\nBao lấy sổ \r\nLhcc : 0762509746 tân', '0934754627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10', NULL),
+(37, 1, 'Bán Căn Hộ Chung Cư', 'can mua nha', 'images/1.jpg', 5, 'asdp[aldsp[asdlas[dpasldasdasdasdasdasdasdasdasdasdasasdassasadsadsadsd', '093474627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10', NULL),
+(38, 1, 'Bán Căn Hộ Chung Cư', 'can mua nha', 'images/1.jpg', 5, 'asdp[aldsp[asdlas[dpasldasdasdasdasdasdasdasdasdasdasasdassasadsadsadsd', '093474627', 75, 'ha tuan kiet', '126 dien bien phu,quan thanh khe,tp. da nang', '2018-12-10', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `trangphongthuy`
+-- Table structure for table `trangphongthuy`
 --
 
-CREATE TABLE `trangphongthuy` (
+CREATE TABLE IF NOT EXISTS `trangphongthuy` (
   `phongthuy_ID` int(255) NOT NULL,
-  `phongthuy_Image` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phongthuy_tieude` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phongthuy_noidung` longtext COLLATE utf8_unicode_ci DEFAULT NULL
+  `phongthuy_Image` text COLLATE utf8_unicode_ci,
+  `phongthuy_tieude` text COLLATE utf8_unicode_ci,
+  `phongthuy_noidung` longtext COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `trangphongthuy`
+-- Dumping data for table `trangphongthuy`
 --
 
 INSERT INTO `trangphongthuy` (`phongthuy_ID`, `phongthuy_Image`, `phongthuy_tieude`, `phongthuy_noidung`) VALUES
@@ -266,24 +265,24 @@ INSERT INTO `trangphongthuy` (`phongthuy_ID`, `phongthuy_Image`, `phongthuy_tieu
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) NOT NULL,
-  `hovaten` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_Name` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_Pass` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_Email` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_diachi` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_sdt` text COLLATE utf8_unicode_ci DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+`id` bigint(20) NOT NULL,
+  `hovaten` text COLLATE utf8_unicode_ci,
+  `user_Name` text COLLATE utf8_unicode_ci,
+  `user_Pass` text COLLATE utf8_unicode_ci,
+  `user_Email` text COLLATE utf8_unicode_ci,
+  `user_diachi` text COLLATE utf8_unicode_ci,
+  `user_sdt` text COLLATE utf8_unicode_ci,
   `user_role` int(255) DEFAULT NULL,
   `user_kichhoat` int(255) NOT NULL,
   `user_code` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1544693423615 ;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `hovaten`, `user_Name`, `user_Pass`, `user_Email`, `user_diachi`, `user_sdt`, `user_role`, `user_kichhoat`, `user_code`) VALUES
@@ -293,18 +292,18 @@ INSERT INTO `users` (`id`, `hovaten`, `user_Name`, `user_Pass`, `user_Email`, `u
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `xaydung_kientruc`
+-- Table structure for table `xaydung_kientruc`
 --
 
-CREATE TABLE `xaydung_kientruc` (
+CREATE TABLE IF NOT EXISTS `xaydung_kientruc` (
   `xaydung_kientruc_ID` int(11) NOT NULL,
-  `xaydung_kientruc_Image` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `xaydung_kientruc_tieude` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `xaydung_kientruc_noidung` text COLLATE utf8_unicode_ci DEFAULT NULL
+  `xaydung_kientruc_Image` text COLLATE utf8_unicode_ci,
+  `xaydung_kientruc_tieude` text COLLATE utf8_unicode_ci,
+  `xaydung_kientruc_noidung` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Đang đổ dữ liệu cho bảng `xaydung_kientruc`
+-- Dumping data for table `xaydung_kientruc`
 --
 
 INSERT INTO `xaydung_kientruc` (`xaydung_kientruc_ID`, `xaydung_kientruc_Image`, `xaydung_kientruc_tieude`, `xaydung_kientruc_noidung`) VALUES
@@ -315,104 +314,97 @@ INSERT INTO `xaydung_kientruc` (`xaydung_kientruc_ID`, `xaydung_kientruc_Image`,
 (5, 'images/a.jpg', 'Cách giảm bớt vận hạn cho các con giáp trong năm Bính Thân (P1)', 'Dưới đây là một số gợi ý của chuyên gia phong thủy Tống Thiều Quang giúp các con giáp giảm bớt vận hạn trong năm mới Bính Thân 2016.\r\n1. Tuổi Tý:\r\nNăm nay người tuổi Tý có vận thế khá khởi sắc, đây chính là cơ hội tốt để phát triển cơ đồ, có thể một bước lên mây. Tuy nhiên điều đáng tiếc là sức khỏe tuổi Tý chỉ bình bình, dễ mắc bệnh truyền nhiễm, do đó phải chú ý ăn uống hợp vệ sinh. Nên đặt ở hướng Tây một đôi kỳ lân ngậm cỏ linh chi màu nâu để sinh vượng, lấy cát tránh hung. Đặc biệt, nếu người tuổi Tý mang thêm bên mình một miếng đá màu vàng hình đôi Kỳ Lân Ngậm Linh Chi làm bùa hộ thân thì công hiệu lại càng nhanh và linh nghiệm.\r\n\r\ntượng kỳ lân\r\nTượng Kỳ lân ngậm linh chi giúp hóa giải vận hạn cho tuổi Tý năm Bính Thân\r\nTrong năm nay, người tuổi Tý có 3 hướng cát sinh vượng gồm hướng Tây, hướng Đông Nam và Tây Nam. Nếu kê được đầu giường, bàn làm việc hoặc sô pha vào ba hướng này thì càng tốt, vì sẽ hợp với đạo hướng cát theo phong thủy năm 2016 của tuổi Tý, mang lại nhiều lợi ích cho việc cải thiện vận trình cả năm. Trường hợp không thay đổi được vị trí cũng nên kê ba thứ quan trọng nêu trên cũng không nên kê vào các hướng Nam và Bắc nhằm tránh hung.\r\n\r\nBa màu sắc gồm đỏ, vàng và tím sẽ giúp sinh vượng cho người tuổi Tý. Những ai tuổi Tý biết dùng những màu sắc này vào việc ăn mặc hoặc bố trí phòng ốc sẽ rất có ích cho việc cải thiện vận trình cả năm. Tuổi Tý năm nay sẽ kỵ các màu như xanh lục và đen, tốt nhất nên tránh sử dụng hai màu này. Con số sinh vượng của con giáp này trong năm 2016 là số 1 và số 6.\r\n\r\n2. Tuổi Sửu:\r\nNhững ai tuổi Sửu năm nay nên bày đôi Linh vật bằng ngọc màu xanh ngọc với ý nghĩa “Lục Lục Vô Cùng” ở phía Đông Nam, hoặc cạnh bàn làm việc. Dân gian thường có câu“ Tam tam bất tận, lục lục vô cùng”, trong đó “lục” là âm đọc chỉ số 6, đồng âm với cách đọc từ “con nai” trong tiếng Hán, do đó khi bày đôi nai sẽ có ý nghĩa về sự may mắn. Ngoài ra, âm Hán Việt của con nai cũng trùng âm đọc với chữ “ lộc” nên đôi nai còn có thêm ý nghĩa là “công danh lợi lộc”. Năm nay tuổi Sửu sẽ có vận trình đại cát đại lợi, công việc tốt đẹp, nhận được sự hỗ trợ và có nhiều đột phá! Tuy nhiên tuổi này cũng cần đề phòng tiểu nhân cản đường. Để hướng cát tránh hung, tuổi Sửu nên đặt cặp “lục lục vô cùng” màu xanh ngọc ở phía Đông Nam.\r\n\r\nPhương vị Cát năm nay của tuổi Sửu là ở hướng Đông Nam, hãy lắp giường, đặt bàn làm việc hoặc bàn ghế ở phương vị này để phù hợp phong thủy của năm, đồng thời giúp cải thiện vận trình năm nay. Các hướng nên tránh gồm Tây Nam và Đông Bắc, các đồ đạc quan trọng nên tránh đặt ở hướng này để tránh hung.\r\n\r\nMàu sắc hợp với người tuổi Sửu năm là màu xanh lá cây, xám, và xanh da trời, nên dùng những màu này để trang trí phòng ốc, phối quần áo để cải thiện vận trình cả năm của mình, đồng thời tránh dùng màu đỏ và cam. Con số may mắn năm nay của con giáp này là số 2 và số 8.\r\n\r\n3. Tuổi Dần:\r\nĐể hóa sát, những ai tuổi Dần nên đặt một đôi “Dần Hợi Cát Tường” bằng đá màu vàng kim trong nhà hoặc trên bàn làm việc. Cặp đôi hổ uy nghiêm oai phong leo lên bức tường thành và lợn với vẻ mặt vui vẻ nằm trên cao mang ý nghĩa vạn sự như ý. Theo thuật học, Dần và Hợi là hai con giáp trong lục hợp, hai con vật này rất hợp nhau, không hề tương khắc. Ngoài ra, chữ “tường” trong từ bức tường thành cũng đồng âm với chữ “tường” trong từ cát tường, do đó tượng hai con vật này được cho là sẽ đem lại nhiều may mắn. Năm nay, tuổi Dần bị phạm thái tuế, vận hạn gập ghềnh nên phải từng bước hóa giải. Công việc không tiến triển nhiều, có thể con bị đình trệ, thậm chí gặp nhiều tiểu nhân và chuyện thị phi, nên tuổi Dần nếu lơ là một chút là có thể bị rơi vào tình trạng làm không công. Để hướng cát tránh hung, tuổi Dần nên đặt một đôi hổ và lợn màu vàng kim làm linh vật bảo vệ.\r\n\r\nBa hướng tốt với tuổi Dần năm nay gồm hướng Đông, hướng Tây Bắc và hướng Tây. Nếu đặt được giường ngủ, bàn làm việc và ghế sofa theo đúng hướng này sẽ rất tốt cho tuổi Dần cũng như có lợi cho việc cải thiện vận mệnh trong năm nay.\r\n\r\nNếu không thể làm được như trên, tuổi Dần cũng nên đặt giường ngủ, bàn làm việc và ghế sofa tránh các hướng xấu là Tây Nam và Nam. Màu sắc may mắn của người tuổi Dần năm nay gồm vàng, đỏ và tím. Nên sử dụng những màu này để trang trí phòng ở hoặc phối đồ quần áo để nhận được ảnh hưởng tốt đến cuộc sống năm nay. Các màu kỵ với tuổi Dần năm nay gồm màu xanh da trời, xanh lục, còn con số may mắn của con giáp này là số 3 và số 5.\r\n\r\nChuyên gia Phong thủy Tống Thiều Quang\r\n(Theo Vnmedia)');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`category_id`) USING BTREE;
+ ADD PRIMARY KEY (`category_id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `category_chothue`
+-- Indexes for table `category_chothue`
 --
 ALTER TABLE `category_chothue`
-  ADD PRIMARY KEY (`category_chothue_id`) USING BTREE;
+ ADD PRIMARY KEY (`category_chothue_id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `chothue`
+-- Indexes for table `chothue`
 --
 ALTER TABLE `chothue`
-  ADD PRIMARY KEY (`chothue_id`) USING BTREE;
+ ADD PRIMARY KEY (`chothue_id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `menu`
+-- Indexes for table `menu`
 --
 ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `noi_ngoai_that`
+-- Indexes for table `noi_ngoai_that`
 --
 ALTER TABLE `noi_ngoai_that`
-  ADD PRIMARY KEY (`ID_noingoaithat`) USING BTREE;
+ ADD PRIMARY KEY (`ID_noingoaithat`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`) USING BTREE;
+ ADD PRIMARY KEY (`product_id`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `trangphongthuy`
+-- Indexes for table `trangphongthuy`
 --
 ALTER TABLE `trangphongthuy`
-  ADD PRIMARY KEY (`phongthuy_ID`) USING BTREE;
+ ADD PRIMARY KEY (`phongthuy_ID`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`,`user_kichhoat`) USING BTREE;
+ ADD PRIMARY KEY (`id`,`user_kichhoat`) USING BTREE;
 
 --
--- Chỉ mục cho bảng `xaydung_kientruc`
+-- Indexes for table `xaydung_kientruc`
 --
 ALTER TABLE `xaydung_kientruc`
-  ADD PRIMARY KEY (`xaydung_kientruc_ID`) USING BTREE;
+ ADD PRIMARY KEY (`xaydung_kientruc_ID`) USING BTREE;
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT cho bảng `category_chothue`
+-- AUTO_INCREMENT for table `category_chothue`
 --
 ALTER TABLE `category_chothue`
-  MODIFY `category_chothue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+MODIFY `category_chothue_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT cho bảng `chothue`
+-- AUTO_INCREMENT for table `chothue`
 --
 ALTER TABLE `chothue`
-  MODIFY `chothue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+MODIFY `chothue_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT cho bảng `menu`
+-- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT cho bảng `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
+MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1544693423615;
-COMMIT;
-
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1544693423615;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

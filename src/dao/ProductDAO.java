@@ -235,10 +235,11 @@ public class ProductDAO
     //hien thi tat ca san pham
     public static ArrayList<Product> getListProduct() throws SQLException
     {
-        Connection con = DBConnect.getConnection();
-        PreparedStatement ps = (PreparedStatement) con.prepareStatement("select*from product limit 20");
-        ResultSet rs = ps.executeQuery();
-        ArrayList<Product> list = new ArrayList<>();
+    	  Connection con = DBConnect.getConnection();
+          
+          java.sql.PreparedStatement ps = con.prepareStatement("select*from product where status='1'");
+          ResultSet rs = ps.executeQuery();
+          ArrayList<Product> list = new ArrayList<>();
         while(rs.next())
         {
             Product p = new Product();
@@ -265,9 +266,5 @@ public class ProductDAO
             
         });
         return list;
-    }
-    
-    
-    
-    
+    }    
 }
