@@ -23,7 +23,7 @@
             }
         %>
         <!--sidebar-menu-->
-        <div id="sidebar" style="margin-top:-654px;" ><a href="#" class="visible-phone"><i class="icon icon-home"></i> Thống Kê</a>
+        <div id="sidebar" style="margin-top:0px;" ><a href="#" class="visible-phone"><i class="icon icon-home"></i> Thống Kê</a>
             <ul>
                 <li class="active"><a href="index_Admin.jsp"><i class="icon icon-home" style="color: white;"></i> <span style="color: white;">Home</span></a> </li>
                 <li> <a href="#"><i class="icon icon-signal" style="color: white;"></i> <span style="color: white;">Biểu Đồ</span></a> </li>

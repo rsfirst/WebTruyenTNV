@@ -21,7 +21,19 @@ public class ProductDAO
         
         return 0;
     }
-    
+    public  String getCategoryById(String id) throws SQLException
+    {
+      Connection con = DBConnect.getConnection();
+      java.sql.PreparedStatement ps = con.prepareStatement("select category_name from category where category_id=? ");
+      ps.setString(1, id);
+      ResultSet rs = ps.executeQuery();
+      String category_name="";
+      if(rs.next() )
+      {
+    	  category_name=rs.getString("category_name");
+      }
+      return category_name;
+    }
     public static int countbaidangmua() throws SQLException
     {
       Connection con = DBConnect.getConnection();
@@ -111,7 +123,7 @@ public class ProductDAO
         }
         return list;
     }
-    //Đưa Tât Cả Sản Phẩm Từ Category_id ra Khi bấm vào danh mục đó
+    //Ä�Æ°a TÃ¢t Cáº£ Sáº£n Pháº©m Tá»« Category_id ra Khi báº¥m vÃ o danh má»¥c Ä‘Ã³
     public static ArrayList<Product> getListProductByCategory(long category_id) throws SQLException
     {
         Connection connection = DBConnect.getConnection();
@@ -134,7 +146,7 @@ public class ProductDAO
         return list;
     }
     
-     // hiển thị chi tiết sản phẩm
+     // hiá»ƒn thá»‹ chi tiáº¿t sáº£n pháº©m
     public static Product getProduct(long productID) throws SQLException
     {
         Connection con = DBConnect.getConnection();

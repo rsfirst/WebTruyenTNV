@@ -1,11 +1,15 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Item"%>
 <%@page import="java.util.Map"%>
 <%@page import="model.Cart"%>
 <%@page import="dao.PostMuaDAO"%>
 <%@page import="model.PostMua"%>
 <%@page import="model.Users"%>
+<%@page import="model.Menu"%>
 <%@page import="model.Category"%>
 <%@page import="dao.CategoryDAO"%>
+<%@page import="dao.MenuDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -110,6 +114,7 @@
 <body>
 	<%
 		CategoryDAO categoryDAO = new CategoryDAO();
+		MenuDao menuDAO = new MenuDao();
 		Users users = null;
 		if (session.getAttribute("user") != null) {
 			users = (Users) session.getAttribute("user");
@@ -235,44 +240,46 @@
 				<div class="h_menu4">
 					<a class="toggleMenu" href="#">Menu</a>
 					<ul class="nav">
-						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4);border-top-left-radius:1.5em;border-bottom-left-radius:1.5em" ><a
-							href="index.jsp" id="menu"><i> </i>Home</a></li>
-						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4)"><a
-							id="menu" href="#">NHÀ ĐẤT BÁN</a>
+						<%
+							List<Menu> lstMenu = new ArrayList<>();
+							lstMenu = menuDAO.getLstMenu();
+							String styleMenu = "";
+							String styleHome = "<i> </i>";
+							for (int i = 0; i < lstMenu.size(); i++) {
+								if (i == 0) {
+									styleMenu = "border-top-left-radius: 1.5em; border-bottom-left-radius: 1.5em;";
+								} else if (i == lstMenu.size() - 1) {
+									styleMenu = "border-top-right-radius: 1.5em; border-bottom-right-radius: 1.5em;";
+								} else {
+									styleMenu = "";
+								}
+								if (i > 0) {
+									styleHome = "";
+								}
+								Menu menu = lstMenu.get(i);
+						%>
+						<li id="s" class="active"
+							style="background: rgba(0, 0, 0, 0.4); <%=styleMenu%>"><a
+							href="<%=menu.getLinkMenu()%>" id="menu"><%=styleHome%><%=menu.getMenuName()%></a>
+							<%
+								ArrayList<Category> lstCategory = categoryDAO.getListCategory(String.valueOf(menu.getId()));
+									if (lstCategory.size() > 0) {
+							%>
 							<ul class="drop" style="background: rgba(0, 0, 0, 0.4);">
 								<%
-									for (Category c : categoryDAO.getListCategory()) {
+									for (Category c : lstCategory) {
 								%>
 								<li id="s" style="background: rgba(0, 0, 0, 0.4);"><a
-									id="menu"
-									href="product.jsp?category=<%=c.getCategoryID()%>&pages=1"><%=c.getCategoryName()%></a></li>
+									id="menu" href="<%=c.getLinkMenu()%>?category=<%=c.getCategoryID()%>&pages=1"><%=c.getCategoryName()%></a></li>
 								<%
 									}
 								%>
-							</ul></li>
-						<li id="s" style="background: rgba(0, 0, 0, 0.4); color: white;"><a
-							id="menu" href="#">Nhà Đất Cho Thuê</a>
-							<ul class="drop" style="background: rgba(0, 0, 0, 0.4);">
-								<%
-									for (Category c : categoryDAO.getListCategoryChoThue()) {
-								%>
-								<li id="s" style="background: rgba(0, 0, 0, 0.4);"><a
-									id="menu"
-									href="product_chothue.jsp?category=<%=c.getCategoryID()%>"><%=c.getCategoryName()%></a></li>
-								<%
-									}
-								%>
-							</ul></li>
-						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4)"><a
-							id="menu" href="#">Tin Tức</a></li>
-						<li id="s" style="background: rgba(0, 0, 0, 0.4); color: white;"><a
-							id="menu" href="xaydung_kientruc.jsp">Xây Dựng Kiến Trúc </a></li>
-						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4)"><a
-							id="menu" href="noi_ngoaithat.jsp">Nội-Ngoại Thất</a></li>
-						<li id="s" style="background: rgba(0, 0, 0, 0.4); color: white;"><a
-							id="menu" href="phongthuy.jsp">Phong Thủy</a></li>
-						<li id="s" class="active" style="background: rgba(0, 0, 0, 0.4);border-top-right-radius:1.5em;border-bottom-right-radius:1.5em"><a
-							id="menu" href="lienhe.jsp">Liên Hệ</a></li>
+							</ul> <%
+ 	}
+ %></li>
+						<%
+							}
+						%>
 					</ul>
 					<script type="text/javascript" src="js/nav.js"></script>
 				</div>
@@ -353,7 +360,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -379,7 +422,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -411,7 +490,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -437,7 +552,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -469,7 +620,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -495,7 +682,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -527,7 +750,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -553,7 +812,43 @@ color
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :red
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

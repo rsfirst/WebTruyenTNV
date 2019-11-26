@@ -50,7 +50,7 @@
             }
         </style>
     </head>
-    <body style="background:url(bgImages/body-bg-tl.jpg) fixed">
+    <body >
         <%
             CategoryDAO categoryDAO = new CategoryDAO();
             ArrayList<Category> listCategory = categoryDAO.getListCategory();
@@ -63,6 +63,7 @@
                 response.sendRedirect("404.jsp");
             }
         %>
+         <jsp:include page="menu_Admin.jsp" ></jsp:include>
         <!--main-container-part-->
         <div id="content" style="background:rgba(0,0,0,0)">
             <!--breadcrumbs-->
@@ -71,10 +72,11 @@
             </div>
             <!--End-breadcrumbs-->
             <!--Start-->
-            <div>
-                <h3>Danh Mục Nhà, Đất Cho Thuê</h3>
+            <div style="background: white;">
+                <h3 class="future"
+				style="padding-top: 0.5em; color: #6b9876; font-size: 30px";>Quản lý thể loại truyện</h3>
                 <table id="danhmuc">
-                    <a href="insert_category.jsp"><i class="fas fa-plus-square">Thêm Danh Mục</i></a>
+                    <a href="insert_category.jsp" class="fas fa-plus-square" style="color: color: #6b9876;">Thêm Danh Mục</i></a>
                     <tr>
                         <th>Số Thứ Tự</th>
                         <th>Tên Danh Mục</th>
@@ -96,7 +98,7 @@
             <div class="clear"></div>
             <!--End-->
         </div>
-        <jsp:include page="menu_Admin.jsp" ></jsp:include>
+       
 
 
         <script src="js/excanvas.min.js"></script> 

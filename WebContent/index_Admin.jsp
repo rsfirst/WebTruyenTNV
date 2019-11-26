@@ -20,7 +20,7 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     </head>
 </head>
-<body style="background:url(bgImages/body-bg-tl.jpg) fixed">
+<body >
 
     <jsp:include page="header_Admin.jsp" ></jsp:include>
     <%
@@ -30,8 +30,9 @@
             response.sendRedirect("404.jsp");
         }
     %>
-    <jsp:include page="trangchu_Admin.jsp"></jsp:include>
+    
     <jsp:include page="menu_Admin.jsp" ></jsp:include>
+    <jsp:include page="trangchu_Admin.jsp"></jsp:include>
 
 
 
