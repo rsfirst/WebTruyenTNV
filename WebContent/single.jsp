@@ -26,7 +26,9 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -127,22 +129,21 @@
 											<a class="author"><%=p2.getProductName()%></a>
 										</div>
 									</div>
-								</div>
-								<div class="list">
 									<div class="item">
 										<div class="item-label">Thể loại:</div>
 										<div class="item-value">
 											<a class="author"><%=p2.getHinhthuc()%></a>
 										</div>
 									</div>
-								</div>
-								<div class="list">
 									<div class="item">
 										<div class="item-label">Tình trạng:</div>
 										<div class="item-value">
 											<a class="author"><%=p2.getHoten()%></a>
 										</div>
 									</div>
+								</div>
+								<div class="buttons">
+								<a href="singleDetail.jsp?productID=<%=p2.getProductID()%>" class="btn btn-truyencv">Đọc truyện</a>
 								</div>
 							</div>
 						</div>
@@ -202,7 +203,7 @@
 				<div class="tab-pane fade in active" style="background: white;">
 					<div class="row">
 						<div class="col-sm-12 col-md-8 col-lg-9">
-							<div class="brief" style="display: block;padding: 2em">
+							<div class="brief" style="display: block; padding: 2em">
 								<%=p2.getProductDescription()%>
 							</div>
 						</div>

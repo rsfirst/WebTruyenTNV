@@ -239,7 +239,7 @@
 			<div class="container">
 				<div class="h_menu4">
 					<a class="toggleMenu" href="#">Menu</a>
-					<ul class="nav">
+					<ul class="nav" style="padding-left: 7em">
 						<%
 							List<Menu> lstMenu = new ArrayList<>();
 							lstMenu = menuDAO.getLstMenu();
@@ -286,7 +286,7 @@
 			</div>
 		</div>
 		<div class="header-bottom-in" style="background: rgba(0, 0, 0, 0.4);">
-			<div class="container">
+			<div class="container" style="padding-left: 8em">
 				<%
 					if (users == null) {
 				%>
