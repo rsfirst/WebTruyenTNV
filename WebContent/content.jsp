@@ -9,8 +9,8 @@
 <%@page import="model.Cart"%>
 <%@page import="dao.PostMuaDAO"%>
 <%@page import="model.PostMua"%>
-<%@page import="model.Product"%>
-<%@page import="dao.ProductDAO"%>
+<%@page import="model.Story"%>
+<%@page import="dao.StoryDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -68,6 +68,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 	<%
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		StoryDAO storyDao = new StoryDAO();
 		Cart cart = (Cart) session.getAttribute("cart");
 		if (cart == null) {
 			cart = new Cart();
@@ -84,33 +85,33 @@ ul.callbacks_tabs.callbacks1_tabs {
 					<%
 						request.setCharacterEncoding("UTF-8");
 						response.setCharacterEncoding("UTF-8");
-						for (Product p : ProductDAO.getListProduct()) {
+						for (Story p : storyDao.getListStory()) {
 					%>
 					<div class="col-md-3 md-col" style="margin-top: 30px">
 						<div class="col-md"
 							style="background: rgba(0, 0, 0, 0.4); box-shadow: 2px 2px 16px 0px black">
 							<div>
-								<i class="fas fa-book" style="color: white;"><%=p.getHinhthuc()%></i><span><i
-									style="float: right; color: white;" class="far fa-calendar-alt"><%=p.getNgaydang()%></i></span>
+								<i class="fas fa-book" style="color: white;"><%=p.getCategoryName()%></i><span><i
+									style="float: right; color: white;" class="far fa-calendar-alt"><%=p.getCreateDate()%></i></span>
 							</div>
 							<div class="clearfix"></div>
 							<div class="col-md_img">
-								<a href="single.jsp?productID=<%=p.getProductID()%>"> <img
-									src="<%=p.getProductImage()%>" style="height: 253px;"
-									alt="<%=p.getProductName()%>" />
+								<a href="single.jsp?storyID=<%=p.getStoryId()%>"> <img
+									src="<%=p.getStoryImage()%>" style="height: 253px;"
+									alt="<%=p.getStoryName()%>" />
 								</a>
 							</div>
 							<div class="top-content">
 								<h5>
 									<a style="color: white;"
-										href="single.jsp?productID=<%=p.getProductID()%>"><%=p.getProductName()%></a>
+										href="single.jsp?storyID=<%=p.getStoryId()%>"><%=p.getStoryName()%></a>
 								</h5>
 								<h5 style="padding: 0px; margin-top: -9px;">
-									<i class="fas fa-compass" style="color: white;"><%=p.getVitri()%></i>
+									<i class="fas fa-compass" style="color: white;"><%=p.getStoryName()%></i>
 								</h5>
 								<h5 style="padding: 0px; margin-top: 4px;">
 									<i class="fab fa-laravel"
-										style="color: white; padding: 0px; margin-top: -9px;"><%=p.getDientich()%>m<sup>2</sup></i>
+										style="color: white; padding: 0px; margin-top: -9px;"><%=p.getStoryName()%>m<sup>2</sup></i>
 								</h5>
 								<%
 									Users users = null;
@@ -121,10 +122,10 @@ ul.callbacks_tabs.callbacks1_tabs {
 								%>
 								<div class="white">
 									<%
-										if (!cart.getCartItems().containsKey(p.getProductID())) {
+										if (!cart.getCartItems().containsKey(p.getStoryId())) {
 									%>
 									<a
-										href="CartServlet?command=plus&productID=<%=p.getProductID()%>"
+										href="CartServlet?command=plus&storyID=<%=p.getStoryId()%>"
 										id="luuthongtin"
 										class="hvr-shutter-in-vertical hvr-shutter-in-vertical2">Lưu
 										Thông Tin</a>
@@ -139,7 +140,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 										}
 									%>
 									<p class="dollar">
-										<span><%=p.getProductPrice()%></span><span>Tỷ</span><span
+										<span><%=p.getStoryName()%></span><span>Tỷ</span><span
 											class="in-dollar">VNĐ</span>
 									</p>
 									<div class="clearfix"></div>
@@ -168,7 +169,8 @@ ul.callbacks_tabs.callbacks1_tabs {
 		<div class="content" style="background: white; border-radius: 1em">
 			<div class="content-top">
 				<h3 class="future"
-					style="padding-top: 0.5em; color: #6b9876; font-size: 30px";>Truyện mới</h3>
+					style="padding-top: 0.5em; color: #6b9876; font-size: 30px";>Truyện
+					mới</h3>
 				<div class="content-top-in" style="padding-top: 3px;">
 					<%
 						request.setCharacterEncoding("UTF-8");

@@ -1,35 +1,33 @@
 
 package model;
 
+public class Item {
 
-public class Item 
-{
-    
-    private Product product;
-    private int quantity;
-    
-    public Item() {
-    }
+	private Story story;
+	private int quantity;
 
-    public Item(Product product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
-    }
+	public Item() {
+	}
 
-    public Product getProduct() {
-        return product;
-    }
+	public Item(Story story, int quantity) {
+		this.story = story;
+		this.quantity = quantity;
+	}
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+	public Story getStory() {
+		return story;
+	}
 
-    public int getQuantity() {
-        return quantity;
-    }
+	public void setStory(Story story) {
+		this.story = story;
+	}
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-    
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 }

@@ -2,8 +2,8 @@
 
 <%@page import="java.sql.Connection"%>
 <%@page import="connect.DBConnect"%>
-<%@page import="dao.ProductDAO"%>
-<%@page import="model.Product"%>
+<%@page import="dao.StoryDAO"%>
+<%@page import="model.Story"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -71,18 +71,19 @@
                             request.setCharacterEncoding("utf-8");
                             response.setCharacterEncoding("utf-8");
                             String s = request.getParameter("tim");
+                            StoryDAO storyDAO=new StoryDAO();
                         %>
                         <%
-                            for (Product p : ProductDAO.getTimKiem(s)) {
+                            for (Story p : storyDAO.getSearch(s)) {
                         %>
                         <div class="col-md-3 md-col" style="margin-top:33px;">
                             <div class="col-md">
-                                <a href="single.jsp?productID=<%=p.getProductID()%>"><img  src="<%=p.getProductImage()%>" alt="<%=p.getProductName()%>" /></a>	
+                                <a href="single.jsp?storyID=<%=p.getStoryId()%>"><img  src="<%=p.getStoryImage()%>" alt="<%=p.getStoryName()%>" /></a>	
                                 <div class="top-content">
-                                    <h5><a href="single.jsp?productID=<%=p.getProductID()%>"><%=p.getProductName()%></a></h5>
+                                    <h5><a href="single.jsp?storyID=<%=p.getStoryId()%>"><%=p.getStoryName()%></a></h5>
                                     <div class="white">
-                                        <a href="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="hvr-shutter-in-vertical hvr-shutter-in-vertical2 ">Lưu Thông Tin</a>
-                                        <p class="dollar"><span><%=p.getProductPrice()%></span><span>Tỷ</span><span class="in-dollar">VNĐ</span></p>
+                                        <a href="CartServlet?command=plus&storyID=<%=p.getStoryId()%>" class="hvr-shutter-in-vertical hvr-shutter-in-vertical2 ">Lưu Thông Tin</a>
+                                        <p class="dollar"><span><%=p.getStoryName()%></span><span>Tỷ</span><span class="in-dollar">VNĐ</span></p>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>							

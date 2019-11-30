@@ -4,8 +4,8 @@
 <%@page import="dao.ChoThueDAO"%>
 <%@page import="model.ChoThue"%>
 <%@page import="model.Cart"%>
-<%@page import="model.Product"%>
-<%@page import="dao.ProductDAO"%>
+<%@page import="model.Story"%>
+<%@page import="dao.StoryDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -161,7 +161,7 @@
 
                 <div class="clearfix"> </div>
                 <div style="margin-top: 56px;border: 1px solid white;background: rgba(255,255,255, 0.3);">
-                    <div class="fb-comments" data-href="http://localhost:8081/MuaBanNha/single.jsp?productID=<%=request.getParameter("productID")%>" data-width="700" data-numposts="5"></div><div>
+                    <div class="fb-comments" data-href="http://localhost:8081/MuaBanNha/single.jsp?storyID=<%=request.getParameter("storyID")%>" data-width="700" data-numposts="5"></div><div>
                     </div>
                 </div>
 

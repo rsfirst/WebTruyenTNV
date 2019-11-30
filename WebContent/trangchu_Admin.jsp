@@ -1,7 +1,7 @@
 
 
 <%@page import="model.Users"%>
-<%@page import="dao.ProductDAO"%>
+<%@page import="dao.StoryDAO"%>
 <%@page import="dao.UsersDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,6 +26,7 @@
             if (u == null) {
                 response.sendRedirect("404.jsp");
             }
+            StoryDAO storyDAO=new StoryDAO();
         %>
         <!--main-container-part-->
         <div id="content" style="background: rgba(0,0,0,0);">
@@ -69,9 +70,9 @@
                                     <ul class="site-stats">
                                         <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-user"></i><small>Tổng Cộng<strong><%=UsersDAO.countuser()%></strong> User</small> </li>
                                         <a href="insert_thanhvien_Admin.jsp"><li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-plus" ></i> <strong>1</strong> <small>Thêm User</small></li></a>
-                                        <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-shopping-cart"></i> <strong><% out.print(ProductDAO.countbaidangmua() + ProductDAO.countbaidangban());%></strong> <small>Tổng Cộng Bài Đăng</small></li>
-                                        <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-tag"></i> <strong><%=ProductDAO.countbaidangmua()%> </strong> <small>Lượng Bài Đăng Mua</small></li>
-                                        <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-repeat"></i> <strong><%=ProductDAO.countbaidangban()%></strong> <small>Lượng Bài Đăng Bán</small></li>
+                                        <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-shopping-cart"></i> <strong><% out.print(storyDAO.countbaidangmua() + storyDAO.countbaidangban());%></strong> <small>Tổng Cộng Bài Đăng</small></li>
+                                        <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-tag"></i> <strong><%=storyDAO.countbaidangmua()%> </strong> <small>Lượng Bài Đăng Mua</small></li>
+                                        <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-repeat"></i> <strong><%=storyDAO.countbaidangban()%></strong> <small>Lượng Bài Đăng Bán</small></li>
                                         <li class="bg_lh" style="background: rgba(0,0,0,0.2);"><i class="icon-globe"></i> <strong>0</strong> <small>Online Users</small></li>
                                     </ul>
                                 </div>

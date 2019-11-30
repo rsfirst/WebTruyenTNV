@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Category;
 import model.PostMua;
-import model.Product;
+import model.Story;
 
 
 public class PostMuaDAO 

@@ -2,8 +2,8 @@
 
 <%@page import="model.Users"%>
 <%@page import="model.Cart"%>
-<%@page import="model.Product"%>
-<%@page import="dao.ProductDAO"%>
+<%@page import="model.Story"%>
+<%@page import="dao.StoryDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,9 @@
 	
 	
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -102,12 +104,12 @@
 <body
 	style="background: url(bgImages/body-bg-tl.jpg) fixed; color: white;">
 	<%
-		ProductDAO p = new ProductDAO();
-		Product p2 = new Product();
-		String productID2 = "";
-		if (request.getParameter("productID") != null) {
-			productID2 = request.getParameter("productID");
-			p2 = ProductDAO.getProduct(Long.parseLong(productID2));
+		StoryDAO storyDAO = new StoryDAO();
+		Story story = new Story();
+		String storyID2 = "";
+		if (request.getParameter("storyID") != null) {
+			storyID2 = request.getParameter("storyID");
+			story = storyDAO.getStory(Long.parseLong(storyID2));
 		}
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -120,30 +122,31 @@
 						<div
 							class="col-info col-xs-12 col-sm-push-4 col-sm-8 col-md-push-3 col-md-5 col-lg-push-3 col-lg-6">
 							<div class="info">
-								<h1 class="title" style="color: #333333"><%=p2.getProductName()%>
+								<h1 class="title" style="color: #333333"><%=story.getStoryName()%>
 								</h1>
 								<div class="list">
 									<div class="item">
 										<div class="item-label">Tác giả:</div>
 										<div class="item-value">
-											<a class="author"><%=p2.getProductName()%></a>
+											<a class="author"><%=story.getStoryName()%></a>
 										</div>
 									</div>
 									<div class="item">
 										<div class="item-label">Thể loại:</div>
 										<div class="item-value">
-											<a class="author"><%=p2.getHinhthuc()%></a>
+											<a class="author"><%=story.getCategoryName()%></a>
 										</div>
 									</div>
 									<div class="item">
 										<div class="item-label">Tình trạng:</div>
 										<div class="item-value">
-											<a class="author"><%=p2.getHoten()%></a>
+											<a class="author"><%=story.getWriterName()%></a>
 										</div>
 									</div>
 								</div>
 								<div class="buttons">
-								<a href="singleDetail.jsp?productID=<%=p2.getProductID()%>" class="btn btn-truyencv">Đọc truyện</a>
+									<a href="singleDetail.jsp?storyID=<%=story.getStoryId()%>"
+										class="btn btn-truyencv">Đọc truyện</a>
 								</div>
 							</div>
 						</div>
@@ -151,7 +154,7 @@
 							class="col-thumb col-xs-12 col-sm-pull-8 col-sm-4 col-md-3 col-md-pull-5 col-lg-pull-6 col-lg-3">
 							<div class="thumb hidden-xs">
 								<img class="img-responsive" style="height: 330px; width: 230px;"
-									src="<%=p2.getProductImage()%>" alt="" />
+									src="<%=story.getStoryImage()%>" alt="" />
 							</div>
 						</div>
 						<div
@@ -169,10 +172,10 @@
 							style="line-height: 17px; margin-left: 383px; margin-top: 54px;">
 							<%
 								Cart cart = (Cart) session.getAttribute("cart");
-								if (!cart.getCartItems().containsKey(p2.getProductID())) {
+								if (!cart.getCartItems().containsKey(story.getStoryId())) {
 							%>
 							<a
-								href="CartServlet?command=plus&productID=<%=p2.getProductID()%>"
+								href="CartServlet?command=plus&storyID=<%=story.getStoryId()%>"
 								class="hvr-shutter-in-vertical hvr-shutter-in-vertical2 ">Lưu
 								Thông Tin</a>
 							<%
@@ -204,7 +207,7 @@
 					<div class="row">
 						<div class="col-sm-12 col-md-8 col-lg-9">
 							<div class="brief" style="display: block; padding: 2em">
-								<%=p2.getProductDescription()%>
+								<%=story.getStoryDescription()%>
 							</div>
 						</div>
 					</div>
@@ -218,7 +221,7 @@
 			<div
 				style="margin-top: 56px; border: 1px solid white; background: rgba(255, 255, 255, 0.3);">
 				<div class="fb-comments"
-					data-href="http://localhost:8081/MuaBanNha/single.jsp?productID=<%=request.getParameter("productID")%>"
+					data-href="http://localhost:8081/MuaBanNha/single.jsp?storyID=<%=request.getParameter("storyID")%>"
 					data-width="700" data-numposts="5"></div>
 				<div></div>
 			</div>
@@ -231,14 +234,14 @@
 			<div id="in-line" class="container"
 				style="margin-top: 60px; margin-left: -138px; width: 1303px;">
 				<div class="content">
-					<div class="content-top" style="float: left;">
+					<%-- <div class="content-top" style="float: left;">
 						<h3 class="future" style="color: white;">Bài Đăng Cùng Khoảng
 							Giá</h3>
 						<div class="content-top-in" style="width: 932px;">
 							<%
 								request.setCharacterEncoding("UTF-8");
 								response.setCharacterEncoding("UTF-8");
-								for (Product pp : ProductDAO.getProductSamePrice(p2.getProductPrice())) {
+								for (Story pp : storyDAO.getProductSamePrice(story.getStoryId())) {
 							%>
 							<div class="col-md-3 md-col"
 								style="margin-top: 30px; width: 285px;">
@@ -249,13 +252,13 @@
 											class="far fa-calendar-alt"><%=pp.getNgaydang()%></i></span>
 									</div>
 									<div class="clearfix"></div>
-									<a href="single.jsp?productID=<%=pp.getProductID()%>"><img
+									<a href="single.jsp?storyID=<%=pp.getProductID()%>"><img
 										src="<%=pp.getProductImage()%>" style="height: 253px;"
 										alt="<%=pp.getProductName()%>" /></a>
 									<div class="top-content">
 										<h5>
 											<a style="color: white;"
-												href="single.jsp?productID=<%=pp.getProductID()%>"><%=pp.getProductName()%></a>
+												href="single.jsp?storyID=<%=pp.getProductID()%>"><%=pp.getProductName()%></a>
 										</h5>
 										<h5 style="padding: 0px; margin-top: -9px;">
 											<i class="fas fa-compass" style="color: white;"><%=pp.getVitri()%></i>
@@ -273,7 +276,7 @@
 										%>
 										<div class="white">
 											<%
-												if (!cart.getCartItems().containsKey(p2.getProductID())) {
+												if (!cart.getCartItems().containsKey(story.getProductID())) {
 											%>
 											<a href="#" id="luuthongtinchothue"
 												class="hvr-shutter-in-vertical hvr-shutter-in-vertical2">Lưu
@@ -318,7 +321,7 @@
 
 							<div class="clearfix"></div>
 						</div>
-					</div>
+					</div> --%>
 					<div style="margin-top: 113px;" id="in-line" class="fb-page"
 						data-href="https://www.facebook.com/B%E1%BA%A5t-%C4%90%E1%BB%99ng-S%E1%BA%A3n-%C4%90%C3%A0-N%E1%BA%B5ng-519251811915881/?modal=admin_todo_tour"
 						data-tabs="timeline" data-small-header="true"
@@ -346,30 +349,30 @@
 							<%
 								request.setCharacterEncoding("UTF-8");
 								response.setCharacterEncoding("UTF-8");
-								for (Product pp : ProductDAO.getProductSameTieuDe(p2.getProductName())) {
+								for (Story pp : storyDAO.getStorySameTieuDe(story.getStoryName())) {
 							%>
 							<div class="col-md-3 md-col" style="margin-top: 30px;">
 								<div class="col-md" style="background: rgba(0, 0, 0, 0.4)">
 									<div>
-										<i class="fas fa-home" style="color: white;"><%=pp.getHinhthuc()%></i><span><i
+										<i class="fas fa-home" style="color: white;"><%=pp.getCategoryName()%></i><span><i
 											style="padding-left: 53px; float: right; color: white;"
-											class="far fa-calendar-alt"><%=pp.getNgaydang()%></i></span>
+											class="far fa-calendar-alt"><%=pp.getCreateDate()%></i></span>
 									</div>
 									<div class="clearfix"></div>
-									<a href="single.jsp?productID=<%=pp.getProductID()%>"><img
-										src="<%=pp.getProductImage()%>" style="height: 253px;"
-										alt="<%=pp.getProductName()%>" /></a>
+									<a href="single.jsp?storyID=<%=pp.getStoryId()%>"><img
+										src="<%=pp.getStoryImage()%>" style="height: 253px;"
+										alt="<%=pp.getStoryName()%>" /></a>
 									<div class="top-content">
 										<h5>
 											<a style="color: white;"
-												href="single.jsp?productID=<%=pp.getProductID()%>""><%=pp.getProductName()%></a>
+												href="single.jsp?storyID=<%=pp.getStoryId()%>""><%=pp.getStoryName()%></a>
 										</h5>
 										<h5 style="padding: 0px; margin-top: -9px;">
-											<i class="fas fa-compass" style="color: white;"><%=pp.getVitri()%></i>
+											<i class="fas fa-compass" style="color: white;"><%=pp.getStoryName()%></i>
 										</h5>
 										<h5 style="padding: 0px; margin-top: 4px;">
 											<i class="fab fa-laravel"
-												style="color: white; padding: 0px; margin-top: -9px;"><%=pp.getDientich()%>m<sup>2</sup></i>
+												style="color: white; padding: 0px; margin-top: -9px;"><%=pp.getStoryName()%>m<sup>2</sup></i>
 										</h5>
 										<%
 											Users users = null;
@@ -380,7 +383,7 @@
 										%>
 										<div class="white">
 											<%
-												if (!cart.getCartItems().containsKey(p2.getProductID())) {
+												if (!cart.getCartItems().containsKey(story.getStoryId())) {
 											%>
 											<a href="#" id="luuthongtinchothue"
 												class="hvr-shutter-in-vertical hvr-shutter-in-vertical2">Lưu
@@ -396,7 +399,7 @@
 												}
 											%>
 											<p class="dollar">
-												<span><%=pp.getProductPrice()%></span><span>Tỷ</span><span
+												<span><%=pp.getStoryName()%></span><span>Tỷ</span><span
 													class="in-dollar">VNĐ</span>
 											</p>
 											<div class="clearfix"></div>

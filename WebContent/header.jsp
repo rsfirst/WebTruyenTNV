@@ -172,21 +172,21 @@
 													<div class="alert-close"></div>
 													<div class="list_img" style="width: 98px; height: 81px;">
 														<img style="width: 100%; height: 100%;"
-															src="<%=list.getValue().getProduct().getProductImage()%>"
+															src="<%=list.getValue().getStory().getStoryImage()%>"
 															class="img-responsive" alt="">
 													</div>
 													<div class="list_desc">
 														<h4>
 															<a
-																href="single.jsp?productID=<%=list.getValue().getProduct().getProductID()%>"
+																href="single.jsp?storyID=<%=list.getValue().getStory().getStoryId()%>"
 																style="border-bottom: 2px solid white"><label
-																style="color: white"><%=list.getValue().getProduct().getProductName()%></label></a>
+																style="color: white"><%=list.getValue().getStory().getStoryName()%></label></a>
 														</h4>
 													</div>
 													<div class="list_desc">
 														<h4>
 															<a style="color: red;"
-																href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getProductID()%>"><label
+																href="CartServlet?command=remove&storyID=<%=list.getValue().getStory().getStoryId()%>"><label
 																style="color: white; cursor: pointer">Xóa</label></a>
 														</h4>
 													</div>
@@ -270,7 +270,8 @@
 									for (Category c : lstCategory) {
 								%>
 								<li id="s" style="background: rgba(0, 0, 0, 0.4);"><a
-									id="menu" href="<%=c.getLinkMenu()%>?category=<%=c.getCategoryID()%>&pages=1"><%=c.getCategoryName()%></a></li>
+									id="menu"
+									href="<%=c.getLinkMenu()%>?category=<%=c.getCategoryID()%>&pages=1"><%=c.getCategoryName()%></a></li>
 								<%
 									}
 								%>
@@ -378,7 +379,11 @@ color
 
 
 
+
+
 :white
+
+
 
 
 
@@ -440,7 +445,11 @@ color
 
 
 
+
+
 :red
+
+
 
 
 
@@ -508,7 +517,11 @@ color
 
 
 
+
+
 :white
+
+
 
 
 
@@ -570,7 +583,11 @@ color
 
 
 
+
+
 :red
+
+
 
 
 
@@ -638,7 +655,11 @@ color
 
 
 
+
+
 :white
+
+
 
 
 
@@ -700,7 +721,11 @@ color
 
 
 
+
+
 :red
+
+
 
 
 
@@ -768,7 +793,11 @@ color
 
 
 
+
+
 :white
+
+
 
 
 
@@ -830,7 +859,11 @@ color
 
 
 
+
+
 :red
+
+
 
 
 

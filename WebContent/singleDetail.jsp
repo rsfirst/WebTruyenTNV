@@ -2,8 +2,8 @@
 
 <%@page import="model.Users"%>
 <%@page import="model.Cart"%>
-<%@page import="model.Product"%>
-<%@page import="dao.ProductDAO"%>
+<%@page import="model.Story"%>
+<%@page import="dao.StoryDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -102,12 +102,12 @@
 <body
 	style="background: #2E363F">
 	<%
-		ProductDAO p = new ProductDAO();
-		Product p2 = new Product();
-		String productID2 = "";
-		if (request.getParameter("productID") != null) {
-			productID2 = request.getParameter("productID");
-			p2 = ProductDAO.getProduct(Long.parseLong(productID2));
+		StoryDAO storyDAO = new StoryDAO();
+		Story story = new Story();
+		String storyID2 = "";
+		if (request.getParameter("storyID") != null) {
+			storyID2 = request.getParameter("storyID");
+			story = storyDAO.getStory(Long.parseLong(storyID2));
 		}
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -121,7 +121,7 @@
 					<div class="row">
 						<div class="col-sm-12 col-md-8 col-lg-9">
 							<div class="brief" style="display: block; padding: 2em">
-								<%=p2.getProductDescription()%>
+								<%=story.getStoryDescription()%>
 							</div>
 						</div>
 					</div>

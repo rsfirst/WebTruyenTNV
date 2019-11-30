@@ -77,7 +77,7 @@ public class Cart
     {
         return  cartItems.size();
     }
-    //sum total 
+   /* //sum total 
     public double totalCart()
     {   
         double count = 0;
@@ -87,5 +87,5 @@ public class Cart
             count += list.getValue().getProduct().getProductPrice()* list.getValue().getQuantity();
         }
         return count;
-    }
+    }*/
 }

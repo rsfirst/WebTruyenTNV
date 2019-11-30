@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import dao.ProductDAO;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
 import model.Item;
-import model.Product;
+import model.Story;
 
 @WebServlet(name = "CartServlet", urlPatterns = {"/CartServlet"})
 public class CartServlet extends HttpServlet
@@ -37,7 +37,7 @@ public class CartServlet extends HttpServlet
         try 
         {
             Long idProduct = Long.parseLong(productID);
-            Product product =  ProductDAO.getProduct(idProduct);
+            Story product =  ProductDAO.getProduct(idProduct);
             
             switch(command)
             {
@@ -64,3 +64,4 @@ public class CartServlet extends HttpServlet
         response.sendRedirect("ThongTinNhaDaLuu.jsp");
     }
 }
+*/
