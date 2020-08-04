@@ -1,5 +1,5 @@
 SELECT concat('DROP TABLE IF EXISTS `', table_name, '`;')
 FROM information_schema.tables
-WHERE table_schema = 'muabannhadat';
+WHERE table_schema = 'muabannhadat';ffdfd
 123
 Test04082020
